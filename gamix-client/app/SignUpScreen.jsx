@@ -3,8 +3,11 @@ import { StyleSheet, View, Text } from "react-native";
 import Logo from "../components/Logo";
 import SocialAuthOptions from "../components/SocialAuthOptions";
 import Button from "../components/ButtonEmail";
+import Input from "../components/Input";
+import InputPassword from "../components/InputPassword";
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from "react-native-gesture-handler";
+
 
 const SignUpScreen = () => {
     const [buttonClicked, setButtonClicked] = useState(false);
@@ -17,8 +20,13 @@ const SignUpScreen = () => {
     return (
         <View style={styles.main}>
             {buttonClicked ? (
-                    <View>
-                        <Text>Botão clicado</Text>
+                    <View style={styles.container}>
+                        <Logo/>
+                        <Text style={{ fontFamily: 'System', fontSize:28, fontWeight: 'bold', color: '#fff' }}>Criar uma conta</Text>
+                        <Input title="Nome de Usuário" placeHolder="Digite seu nome de usuário" />
+                        <Input title="E-mail" placeHolder="Digite seu e-mail"/>
+                        <InputPassword title="Senha" placeHolder="Digita uma senha"/>
+                        <InputPassword title="Confirmação de senha" placeHolder="Digite sua senha novamente"/>
                     </View>
                 )
                 :
