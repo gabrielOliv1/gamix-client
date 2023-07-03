@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     buttonText: {
-      fontFamily: 'Roboto',
+      fontFamily: 'System',
       color: 'white',
       fontSize: 16,
       fontWeight: 'bold',

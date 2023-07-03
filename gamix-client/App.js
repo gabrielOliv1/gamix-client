@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import SignUp from './pages/signUp';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginScreen from './app/LoginScreen';
+import SignUpScreen from './app/SignUpScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <SignUp/>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+          cardStyle: { backgroundColor: '#1C2034' },
+          gestureEnabled: true,
+          gestureDirection: 'horizontal '
+        }}
+      >
+          <Stack.Screen name='sign up' component={SignUpScreen}/>
+          <Stack.Screen name='login' component={LoginScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#1C2034',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
