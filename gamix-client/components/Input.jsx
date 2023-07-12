@@ -1,58 +1,93 @@
 import { useState } from "react";
-import { TextInput, View, Text, StyleSheet } from "react-native"
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { TextInput, View, Text, StyleSheet } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
-const Input = ({ title, placeHolder }) => {
-    const [text, setText] = useState('');
-    const [isFocused, setIsFocused] = useState(false);
+const Input = ({ type, secureTextEntry, title, placeHolder }) => {
+  const [text, setText] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-    const handleFocus = () => {
-      setIsFocused(true);
-    };
-    
-    const handleChangeText = (newText) => {
-      setText(newText);
-    };
-  
-    return (
-    <View>
-      <View style={style.InputContent}>
-    <Icon name="person" size={16} color="white"/>
-    <Text style={style.title}>{title}
-    </Text>
-    </View>  
-    <TextInput
-    style={[style.InputStyle, isFocused && style.focusedInput]} 
-    value={text}
-    onChangeText={handleChangeText}
-    placeholder={placeHolder}
-    placeholderTextColor= "#fff"
-    onFocus={handleFocus}
-    />
-    </View>
-    );
+  const handleFocus = () => {
+    setIsFocused(true);
   };
 
-  const style = StyleSheet.create({
-    InputStyle: {
-        backgroundColor: "#333",
-        width: 309,
-        height: 36,
-        borderRadius: 6,
-        paddingLeft: 10,
-    },
-    InputContent: {
-      flexDirection: 'row',
-      gap: 5,
-      paddingBottom: 10,
-    },
-    title: {
-      color: "#fff",
-      fontFamily: 'System',
-    },
-    focusedInput: {
-      color: '#fff',
-    },
-  });
-  
-  export default Input 
+  const handleChangeText = (newText) => {
+    setText(newText);
+  };
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
+
+  return (
+    <View>
+      <View style={styles.inputContent}>
+        {type === "password" ? (
+          <Icon name="lock" size={16} color="white" />
+        ) : (
+          <Icon name="person" size={16} color="white" />
+        )}
+        <Text style={styles.title}>{title}</Text>
+      </View>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={[styles.inputStyle, isFocused && styles.focusedInput]}
+          secureTextEntry={!isPasswordVisible}
+          value={text}
+          onChangeText={handleChangeText}
+          placeholder={placeHolder}
+          placeholderTextColor="#fff"
+          onFocus={handleFocus}
+        />
+        {type === "password" ? (
+          <TouchableOpacity
+            onPress={togglePasswordVisibility}
+            style={styles.visibilityButton}
+          >
+            <Icon
+              name={isPasswordVisible ? "visibility-off" : "visibility"}
+              size={20}
+              color="white"
+            />
+          </TouchableOpacity>
+        ) : (
+            null
+        )}
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  inputContent: {
+    flexDirection: "row",
+    gap: 5,
+    paddingBottom: 10,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    width: 309,
+    height: 36,
+    borderRadius: 6,
+    backgroundColor: "#333",
+    paddingLeft: 10,
+  },
+  inputStyle: {
+    flex: 1,
+    color: "#fff",
+  },
+  title: {
+    color: "#fff",
+    fontFamily: "System",
+  },
+  focusedInput: {
+    color: "#fff",
+  },
+  visibilityButton: {
+    padding: 8,
+  },
+});
+
+export default Input;
