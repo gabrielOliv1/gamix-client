@@ -3,7 +3,7 @@ import { TextInput, View, Text, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
-const Input = ({ type, secureTextEntry, title, placeHolder }) => {
+const Input = ({ type, title, placeHolder }) => {
   const [text, setText] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
