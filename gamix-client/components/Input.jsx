@@ -46,7 +46,7 @@ const Input = ({ type, title, placeHolder }) => {
             style={styles.visibilityButton}
           >
             <Icon
-              name={isPasswordVisible ? "visibility-off" : "visibility"}
+              name={isPasswordVisible ? "visibility" : "visibility-off"}
               size={20}
               color="white"
             />
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    width: 309,
+    width: 310,
     height: 36,
     borderRadius: 6,
     backgroundColor: "#333",
