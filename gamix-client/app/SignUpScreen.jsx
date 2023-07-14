@@ -2,10 +2,10 @@ import { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import Logo from "../components/Logo";
 import SocialAuthOptions from "../components/SocialAuthOptions";
-import Button from "../components/ButtonEmail";
-import Input from "../components/Input";
+import Button from "../components/Button";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import CreateAccount from "../components/CreateAccount";
 
 const SignUpScreen = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
@@ -18,36 +18,7 @@ const SignUpScreen = () => {
   return (
     <View style={styles.main}>
       {buttonClicked ? (
-        <View style={styles.container}>
-          <Logo />
-          <Text
-            style={{
-              fontFamily: "System",
-              fontSize: 28,
-              fontWeight: "bold",
-              color: "#fff",
-            }}
-          >
-            Criar uma conta
-          </Text>
-          <Input
-            title="Nome de Usuário"
-            placeHolder="Digite seu nome de usuário"
-          />
-          <Input 
-            title="E-mail" 
-            placeHolder="Digite seu e-mail" />
-          <Input
-            type="password"
-            title="Senha"
-            placeHolder="Digita uma senha"
-          />
-          <Input
-            type="password"
-            title="Confirmação de senha"
-            placeHolder="Digite sua senha novamente"
-          />
-        </View>
+            <CreateAccount />
       ) : (
         <View style={styles.container}>
           <Logo />
@@ -76,7 +47,12 @@ const SignUpScreen = () => {
             </Text>
             <SocialAuthOptions />
           </View>
-          <Button title="E-mail" onPress={handleClick} />
+          <Button
+            name="email"
+            title="E-mail"
+            width={184}
+            onPress={handleClick}
+          />
           <View>
             <TouchableOpacity
               onPress={() => {
@@ -104,9 +80,9 @@ const SignUpScreen = () => {
 const styles = StyleSheet.create({
   main: {
     flex: 1,
-    backgroundColor: "#1C2034",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#1C2034",
   },
   container: {
     flex: 1,

@@ -1,11 +1,12 @@
 import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const Button = ({ title, onPress }) => {
+const Button = ({ name, title, width, onPress }) => {
+  const buttonStyle = Object.assign({width: width}, styles.button);
     return (
-      <TouchableOpacity style={styles.button} onPress={onPress}>
+      <TouchableOpacity style={buttonStyle} onPress={onPress}>
         <View style={styles.buttonContent}>
-            <Icon name="email" size={24} color="white" />
+            <Icon name={name} size={24} color="white" />
             <Text style={styles.buttonText}>{title}</Text>
         </View>
       </TouchableOpacity>
@@ -14,7 +15,6 @@ const Button = ({ title, onPress }) => {
 
 const styles = StyleSheet.create({
     button: {
-      width: 184,
       height: 44,
       backgroundColor: '#68589D',
       padding: 10,
