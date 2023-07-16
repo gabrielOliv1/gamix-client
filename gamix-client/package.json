@@ -32,7 +32,8 @@
     "react-native-web": "~0.18.11"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "react-native-vector-icons": "^9.2.0"
   },
   "overrides": {
     "metro": "0.76.0",
