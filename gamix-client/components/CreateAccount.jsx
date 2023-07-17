@@ -31,21 +31,6 @@ const CreateAccount = () => {
             >
               Criar uma conta
             </Text>
-            {/*<Input
-              title="Nome de Usuário"
-              placeHolder="Digite seu nome de usuário"
-            />
-            <Input title="E-mail" placeHolder="Digite seu e-mail" />
-            <Input
-              type="password"
-              title="Senha"
-              placeHolder="Digite uma senha"
-            />
-            <Input
-              type="password"
-              title="Confirmação de senha"
-              placeHolder="Digite sua senha novamente"
-            />*/}
             <Form />
             <PrivacyPolicy />
             <Button title="Registrar-se" width={308} />

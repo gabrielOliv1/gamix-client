@@ -5,11 +5,18 @@ import PasswordFeedback from "./PasswordFeedback";
 
 const Form = () => {
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [feedbackList, setFeedbackList] = useState([]);
+  const [feedbackConfirmPassword, setFeedbackConfirmPassword] = useState([]);
 
-  const handlePasswordChange = (newPassword) => {
-    setPassword(newPassword);
-    checkPasswordStrength(newPassword);
+  const handlePasswordChange = (password) => {
+    setPassword(password);
+    checkPasswordStrength(password);
+  };
+
+  const handleConfirmPasswordChange = (confirmPassword) => {
+    setConfirmPassword(confirmPassword);
+    checkPasswordMatch(password, confirmPassword);
   };
 
   const checkPasswordStrength = (password) => {
@@ -41,6 +48,15 @@ const Form = () => {
     }
   };
 
+  const checkPasswordMatch = (password, confirmPassword) => {
+    if (password && confirmPassword && password !== confirmPassword) {
+      setFeedbackConfirmPassword(["As senhas não coincidem!"])
+    } else {
+      setFeedbackList([]);
+      setFeedbackConfirmPassword([]);
+    }
+  };
+
   return (
     <View style={styles.form}>
       <Input title="Nome de Usuário" placeHolder="Digite seu nome de usuário" />
@@ -57,16 +73,19 @@ const Form = () => {
         type="password"
         title="Confirmação de senha"
         placeHolder="Digite sua senha novamente"
+        value={confirmPassword}
+        onChangeText={handleConfirmPasswordChange}
       />
+      <PasswordFeedback feedbackList={feedbackConfirmPassword} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-    form: {
-        gap: 20,
-        alignItems: "center"
-    }
-})
+  form: {
+    gap: 20,
+    alignItems: "center",
+  },
+});
 
 export default Form;
