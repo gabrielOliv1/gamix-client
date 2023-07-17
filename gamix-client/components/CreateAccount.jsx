@@ -6,7 +6,7 @@ import {
   Platform,
 } from "react-native";
 import Logo from "./Logo";
-import Input from "./Input";
+import Form from "./Form";
 import PrivacyPolicy from "./PrivacyPolicy";
 import { ScrollView } from "react-native-gesture-handler";
 import Button from "./Button";
@@ -31,7 +31,7 @@ const CreateAccount = () => {
             >
               Criar uma conta
             </Text>
-            <Input
+            {/*<Input
               title="Nome de Usuário"
               placeHolder="Digite seu nome de usuário"
             />
@@ -39,15 +39,16 @@ const CreateAccount = () => {
             <Input
               type="password"
               title="Senha"
-              placeHolder="Digita uma senha"
+              placeHolder="Digite uma senha"
             />
             <Input
               type="password"
               title="Confirmação de senha"
               placeHolder="Digite sua senha novamente"
-            />
+            />*/}
+            <Form />
             <PrivacyPolicy />
-            <Button title="Registrar-se" width={308}/>
+            <Button title="Registrar-se" width={308} />
           </View>
         </ScrollView>
       </KeyboardAvoidingView>

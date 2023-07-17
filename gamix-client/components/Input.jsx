@@ -3,7 +3,7 @@ import { TextInput, View, Text, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
-const Input = ({ type, title, placeHolder }) => {
+const Input = ({ type, title, placeHolder, value, onChangeText }) => {
   const [text, setText] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -34,8 +34,8 @@ const Input = ({ type, title, placeHolder }) => {
         <TextInput
           style={[styles.inputStyle, isFocused && styles.focusedInput]}
           secureTextEntry={!isPasswordVisible}
-          value={text}
-          onChangeText={handleChangeText}
+          value={value}
+          onChangeText={onChangeText}
           placeholder={placeHolder}
           placeholderTextColor="#fff"
           onFocus={handleFocus}
@@ -51,9 +51,7 @@ const Input = ({ type, title, placeHolder }) => {
               color="white"
             />
           </TouchableOpacity>
-        ) : (
-            null
-        )}
+        ) : null}
       </View>
     </View>
   );
@@ -87,7 +85,7 @@ const styles = StyleSheet.create({
   },
   visibilityButton: {
     padding: 8,
-  },
+  }
 });
 
 export default Input;
