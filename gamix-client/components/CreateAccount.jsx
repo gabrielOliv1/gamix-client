@@ -4,14 +4,19 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
+  TouchableOpacity,
 } from "react-native";
 import Logo from "./Logo";
 import Form from "./Form";
 import PrivacyPolicy from "./PrivacyPolicy";
 import { ScrollView } from "react-native-gesture-handler";
 import Button from "./Button";
+import RedirectLink from "./RedirectLink";
+import { useNavigation } from "@react-navigation/native";
 
 const CreateAccount = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <KeyboardAvoidingView
@@ -33,7 +38,12 @@ const CreateAccount = () => {
             </Text>
             <Form />
             <PrivacyPolicy />
-            <Button title="Registrar-se" width={308} />
+            <TouchableOpacity>
+              <Button title="Registrar-se" width={308} />
+            </TouchableOpacity>
+            <RedirectLink text="Já tem uma conta?" onPress={() => {
+              navigation.navigate("login");
+            }}/>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>

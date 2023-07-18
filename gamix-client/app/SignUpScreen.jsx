@@ -6,6 +6,7 @@ import Button from "../components/Button";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import CreateAccount from "../components/CreateAccount";
+import RedirectLink from "../components/RedirectLink";
 
 const SignUpScreen = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
@@ -54,22 +55,9 @@ const SignUpScreen = () => {
             onPress={handleClick}
           />
           <View>
-            <TouchableOpacity
-              onPress={() => {
+              <RedirectLink text="Já tem uma conta?" onPress={() => {
                 navigation.navigate("login");
-              }}
-            >
-              <Text
-                style={{
-                  fontFamily: "System",
-                  fontSize: 12,
-                  fontWeight: "100",
-                  color: "#fff",
-                }}
-              >
-                Já tem uma conta?
-              </Text>
-            </TouchableOpacity>
+              }}/>
           </View>
         </View>
       )}
