@@ -53,7 +53,13 @@ const LoginScreen = () => {
                 <SocialAuthOptions />
               </View>
             </View>
-            <Button title="Conectar-se" width={308} />
+            <Button
+              title="Conectar-se"
+              width={308}
+              onPress={() => {
+                navigation.navigate("feed");
+              }}
+            />
             <RedirectLink
               text="Ainda não tem uma conta?"
               onPress={() => {

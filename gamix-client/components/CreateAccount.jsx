@@ -39,11 +39,20 @@ const CreateAccount = () => {
             <Form />
             <PrivacyPolicy />
             <TouchableOpacity>
-              <Button title="Registrar-se" width={308} />
+              <Button
+                title="Registrar-se"
+                width={308}
+                onPress={() => {
+                  navigation.navigate("feed");
+                }}
+              />
             </TouchableOpacity>
-            <RedirectLink text="Já tem uma conta?" onPress={() => {
-              navigation.navigate("login");
-            }}/>
+            <RedirectLink
+              text="Já tem uma conta?"
+              onPress={() => {
+                navigation.navigate("login");
+              }}
+            />
           </View>
         </ScrollView>
       </KeyboardAvoidingView>

@@ -4,7 +4,6 @@ import Logo from "../components/Logo";
 import SocialAuthOptions from "../components/SocialAuthOptions";
 import Button from "../components/Button";
 import { useNavigation } from "@react-navigation/native";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import CreateAccount from "../components/CreateAccount";
 import RedirectLink from "../components/RedirectLink";
 
@@ -19,7 +18,7 @@ const SignUpScreen = () => {
   return (
     <View style={styles.main}>
       {buttonClicked ? (
-            <CreateAccount />
+        <CreateAccount />
       ) : (
         <View style={styles.container}>
           <Logo />
@@ -55,9 +54,12 @@ const SignUpScreen = () => {
             onPress={handleClick}
           />
           <View>
-              <RedirectLink text="Já tem uma conta?" onPress={() => {
+            <RedirectLink
+              text="Já tem uma conta?"
+              onPress={() => {
                 navigation.navigate("login");
-              }}/>
+              }}
+            />
           </View>
         </View>
       )}
