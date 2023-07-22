@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import Navbar from "../components/Navbar";
 import { useState } from "react";
-import SearchBar from "../components/SearchBar";
+import SearchComponent from "../components/SearchComponent";
 
 const FeedScreen = () => {
   const [currentPage, setCurrentPage] = useState("feed");
@@ -12,7 +12,7 @@ const FeedScreen = () => {
   return (
     <View style={styles.main}>
       {currentPage === "feed" && <Text>Feed</Text>}
-      {currentPage === "search" && <SearchBar />}
+      {currentPage === "search" && <SearchComponent />}
       <Navbar currentPage={currentPage} onChangePage={handleChangePage} />
     </View>
   );
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#1C2034",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "center"
   },
 });
 

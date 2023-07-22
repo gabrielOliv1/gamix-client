@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     backgroundColor: "#626CA7",
-    width: "90%",
+    width: "100%",
     height: 40,
     borderRadius: 8,
   },
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     color: "#fff",
-    fontSize: 14,
+    fontSize: 16,
   },
 });
 export default SearchBar;
