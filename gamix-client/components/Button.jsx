@@ -26,13 +26,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
+        gap: 8
     },
     buttonText: {
       fontFamily: 'System',
       color: 'white',
       fontSize: 16,
       fontWeight: 'bold',
-      paddingLeft: 8,
     },
   });
 
