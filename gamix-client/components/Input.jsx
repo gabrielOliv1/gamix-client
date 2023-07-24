@@ -4,16 +4,11 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 const Input = ({ type, title, placeHolder, value, onChangeText }) => {
-  const [text, setText] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const handleFocus = () => {
     setIsFocused(true);
-  };
-
-  const handleChangeText = (newText) => {
-    setText(newText);
   };
 
   const togglePasswordVisibility = () => {
@@ -33,7 +28,7 @@ const Input = ({ type, title, placeHolder, value, onChangeText }) => {
       <View style={styles.inputContainer}>
         <TextInput
           style={[styles.inputStyle, isFocused && styles.focusedInput]}
-          secureTextEntry={!isPasswordVisible}
+          secureTextEntry={type === "password" && !isPasswordVisible}
           value={value}
           onChangeText={onChangeText}
           placeholder={placeHolder}
